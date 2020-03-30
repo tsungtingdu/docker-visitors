@@ -6,6 +6,6 @@ before_install:
   - docker build -t tsungtingdu/docker-visitors -f Dockerfile.dev .
 
 script:
-  - docker run tsungtingdu/docker-visitors npm run tset -- --coverage
+  - docker run tsungtingdu/docker-visitors npm run test -- --coverage
 
-  
+
