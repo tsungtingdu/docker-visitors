@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run -e CI=true tsungtingdu/docker-visitors npm run test -- --coverage
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-2"  
+  app: "docker-visitors" 
+  env: "DockerVisitors-env"
+  bucket_name: "elasticbeanstalk-us-east-2-516245968608"
+  bucket_path: "docker-visitors"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
